@@ -2,6 +2,11 @@
   "name": "glitter",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Hanut Singh Gusain",
+    "email": "hanutsingh@gmail.com",
+    "url": "https://github.com/hanut/"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
