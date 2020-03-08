@@ -68,6 +68,7 @@
 
     .offer {
       position: absolute;
+      width: fit-content;
       margin-top: -2.5rem;
       margin-left: 3.5rem;
       font-size: 0.8rem;
@@ -75,6 +76,7 @@
       background-color: black;
       color: white;
       padding: 0.5rem;
+      border-radius: 100px;
     }
   }
 }
