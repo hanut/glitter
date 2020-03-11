@@ -3,14 +3,9 @@ import { Route, Switch, Link } from 'react-router-dom';
 import HomePage from './pages/home/home.page';
 import ShopPage from './pages/shop/shop.page';
 import * as NotFoundImage from './images/404.jpg';
+import Header from './components/header/header.component.jsx';
 
 import './App.scss';
-
-const RingsPage = () => (
-  <div>
-    <h1>RINGS PAGE</h1>
-  </div>
-);
 
 const NotFoundPage = () => (
   <div style={{textAlign: 'center'}}>
@@ -27,6 +22,7 @@ const NotFoundPage = () => (
 function App() {
   return (
     <div>
+    <Header/>
     <Switch>
       <Route exact path='/' component={HomePage}/> 
       <Route path='/shop' component={ShopPage}/> 

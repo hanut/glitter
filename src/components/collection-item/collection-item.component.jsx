@@ -1,7 +1,6 @@
 import React from 'react';
 
 import './style.scss';
-import CollectionPreview from '../collection-preview/collection-preview.component';
 
 const CollectionItem = ({ id, name, price, image }) => (
     <div className="collection-item">
@@ -9,7 +8,9 @@ const CollectionItem = ({ id, name, price, image }) => (
             className='image'
             style={{
                 backgroundImage: `url(${image})`
-            }} />
+            }}
+            id={id}
+        />
         <div className="collection-footer">
             <span className='name'>{name}</span>
             <span className='price'>&#8377;{price}</span>

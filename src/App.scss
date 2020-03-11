@@ -4,4 +4,14 @@ body {
         color: #696969;
     }
 
+    a {
+        text-decoration: none;
+        transition: all 350ms ease-in-out;
+        
+        &:hover {
+            color: #fff;
+            background: #444;
+        }
+    }
+
 }
