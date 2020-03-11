@@ -30,7 +30,6 @@ function App() {
     <Switch>
       <Route exact path='/' component={HomePage}/> 
       <Route path='/shop' component={ShopPage}/> 
-      <Route path='/rings' component={RingsPage}/> 
       <Route path='*' component={NotFoundPage}/> 
     </Switch>
     </div>
