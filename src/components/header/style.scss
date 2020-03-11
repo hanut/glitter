@@ -7,8 +7,9 @@
 
   .logo-container {
     height: 100%;
-    width: 70px;
-    padding: 25px;
+    width: 60px;
+    padding: 0px 15px;
+    background: inherit;
   }
 
   .options {
@@ -20,6 +21,16 @@
 
     .option {
       padding: 10px 15px;
+
+      .cart-icon {
+        height: 35px;
+        width: 35px;
+        
+      }
+
+      &.cart-link {
+        background: inherit;
+      }
     }
   }
 }
