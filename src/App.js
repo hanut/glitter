@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch, Link } from 'react-router-dom';
 import HomePage from './pages/home/home.page';
 import ShopPage from './pages/shop/shop.page';
+import AuthPage from './pages/auth/auth.page';
 import * as NotFoundImage from './images/404.jpg';
 import Header from './components/header/header.component.jsx';
 
@@ -26,6 +27,7 @@ function App() {
     <Switch>
       <Route exact path='/' component={HomePage}/> 
       <Route path='/shop' component={ShopPage}/> 
+      <Route path='/sign-in' component={AuthPage}/> 
       <Route path='*' component={NotFoundPage}/> 
     </Switch>
     </div>
