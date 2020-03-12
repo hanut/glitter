@@ -1,0 +1,29 @@
+.sign-in {
+  width: 380px;
+  display: flex;
+  flex-direction: column;
+
+  .title{
+    margin: 10px 0;
+  }
+
+  .google-button {
+    background: white;
+
+    &:hover {
+      background: #de5246;
+      border: 1px solid #de5246;
+      
+      #google-logo {
+        .st0,.st1,.st2,.st3 {
+          fill: white;
+        }
+      }
+    }
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+}
