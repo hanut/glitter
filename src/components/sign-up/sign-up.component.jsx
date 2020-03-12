@@ -2,6 +2,7 @@ import React from "react";
 import FormInput from "../../components/form-input/form-input.component";
 import CustomButton from "../../components/custom-button/custom-button.component";
 import { auth, createUserProfile } from "../../firebase/firebase.utils";
+import { withRouter } from "react-router-dom";
 
 import "./style.scss";
 
@@ -34,7 +35,7 @@ class SignUp extends React.Component {
         email,
         password
       );
-      let userRef = await createUserProfile({ displayName, ...user });
+      let userRef = await createUserProfile({ ...user, displayName });
       userRef.onSnapshot(snap => {
         this.setState({
           currentUser: {
@@ -44,6 +45,12 @@ class SignUp extends React.Component {
         });
       });
     } catch (error) {
+      if (error.code === "auth/email-already-in-use") {
+        alert(
+          "This email id is already in use. Please login or try a different email id."
+        );
+        return;
+      }
       console.log(error);
     }
   };
@@ -101,4 +108,4 @@ class SignUp extends React.Component {
   }
 }
 
-export default SignUp;
+export default withRouter(SignUp);
