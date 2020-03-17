@@ -1,7 +1,7 @@
 import React from "react";
 import FormInput from "../../components/form-input/form-input.component";
 import CustomButton from "../../components/custom-button/custom-button.component";
-import { signInWithGoogle } from "../../firebase/firebase.utils";
+import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
 import { ReactComponent as GoogleLogo } from "../../images/google.svg";
 
 import "./style.scss";
@@ -15,9 +15,20 @@ class SignIn extends React.Component {
     };
   }
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault();
-    this.setState({ email: "", password: "" });
+    const { email, password } = this.state;
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      this.setState({ email: "", password: "" });
+    } catch (error) {
+      if (error.code === "auth/user-not-found") {
+        alert("User not found !");
+        this.setState({ email: "", password: "" });
+        return;
+      }
+      console.log(error);
+    }
   };
 
   handleChange = event => {
@@ -49,11 +60,15 @@ class SignIn extends React.Component {
             label="Password"
           />
           <div className="buttons">
-            <CustomButton type="submit">
-              Sign In
-            </CustomButton>
-            <CustomButton type="button" onClick={signInWithGoogle} className="google-button">
-              <GoogleLogo style={{ height: "24px", position: "relative", top: "6px" }} />
+            <CustomButton type="submit">Sign In</CustomButton>
+            <CustomButton
+              type="button"
+              onClick={signInWithGoogle}
+              className="google-button"
+            >
+              <GoogleLogo
+                style={{ height: "24px", position: "relative", top: "6px" }}
+              />
             </CustomButton>
           </div>
         </form>

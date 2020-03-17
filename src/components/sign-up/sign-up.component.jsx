@@ -42,6 +42,9 @@ class SignUp extends React.Component {
             id: snap.id,
             ...snap.data()
           }
+        }, () => {
+          alert("user created and logged in...");
+          this.props.history.push(`${this.props.match.url}/shop`);
         });
       });
     } catch (error) {
