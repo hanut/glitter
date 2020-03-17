@@ -1,0 +1,27 @@
+.cart-icon {
+  width: 55px;
+  height: 55px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 2%;
+
+  .gift-icon {
+    width: 55px;
+    height: auto;
+  }
+
+  .item-count {
+    position: absolute;
+    font-size: 12px;
+    line-height: 8px;
+    font-weight: bold;
+    bottom: 1.3px;
+    background: #222;
+    color: #efefef;
+    padding: 10px;
+    border-radius: 25px;
+  }
+}

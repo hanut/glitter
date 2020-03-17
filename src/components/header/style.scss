@@ -5,6 +5,8 @@
   justify-content: space-between;
   margin-bottom: 25px;
   padding-top: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #bbb;
 
   .logo-container {
     height: 100%;
@@ -27,12 +29,6 @@
     .option {
       padding: 10px 25px;
       cursor: pointer;
-
-      .cart-icon {
-        height: 35px;
-        width: 35px;
-        
-      }
 
       &.cart-link {
         background: inherit;
