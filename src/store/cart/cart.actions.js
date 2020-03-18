@@ -9,6 +9,11 @@ export const addCartItem = (item) => ({
   item
 });
 
+export const incrementItemQty = (itemId) => ({
+  type: CartActionTypes.INCREMENT_CART_ITEM_QUANTITY,
+  itemId
+});
+
 export const removeCartItem = (itemId, all = false) => ({
   type: CartActionTypes.REMOVE_CART_ITEM,
   itemId,

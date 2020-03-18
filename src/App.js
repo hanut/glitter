@@ -1,13 +1,16 @@
 import React from "react";
 import { Route, Switch, Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 import HomePage from "./pages/home/home.page";
 import ShopPage from "./pages/shop/shop.page";
 import AuthPage from "./pages/auth/auth.page";
+import CheckoutPage from "./pages/checkout/checkout.page";
 import * as NotFoundImage from "./images/404.jpg";
 import Header from "./components/header/header.component.jsx";
 import { auth, createUserProfile } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./store/user/user.actions";
+import { selectCurrentUser } from "./store/user/user.selectors";
 
 import "./App.scss";
 
@@ -28,7 +31,6 @@ const NotFoundPage = () => (
 );
 
 class App extends React.Component {
-
   unsubscribeFromAuth = null;
 
   componentDidMount() {
@@ -59,16 +61,24 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
-          <Route exact path="/sign-in" render={() => {
-            return this.props.currentUser ? 
-            (
-              <Redirect to="/" /> 
-            ) :
-            (
-              <AuthPage />
-            )
-          }
-        } />
+          <Route
+            exact
+            path="/sign-in"
+            render={() => {
+              return this.props.currentUser ? (
+                <Redirect to="/" />
+              ) : (
+                <AuthPage />
+              );
+            }}
+          />
+          <Route
+            exact
+            path="/checkout"
+            render={() => (
+              <CheckoutPage />
+            )}
+          />
           <Route path="*" component={NotFoundPage} />
         </Switch>
       </div>
@@ -76,8 +86,8 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = ({ user }) => ({
-  currentUser: user.currentUser 
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -1,5 +1,6 @@
 import CartActionTypes from "./cart.types";
 import { addItemToCart, removeItemFromCart } from "./cart.utils";
+import { incrementItemQty } from "./cart.actions";
 
 const INITIAL_STATE = {
   dropdownHidden: true,
@@ -29,6 +30,14 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         action.itemId,
         action.all
       );
+      return {
+        ...state,
+        cartItems: updatedCartItems
+      };
+    }
+    case CartActionTypes.INCREMENT_CART_ITEM_QUANTITY: {
+      let { cartItems } = state;
+      let updatedCartItems = incrementItemQty(cartItems, action.itemId);
       return {
         ...state,
         cartItems: updatedCartItems

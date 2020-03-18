@@ -7,6 +7,11 @@ export const selectCartItems = createSelector(
   cart => cart.cartItems
 );
 
+export const selectDropdownHidden = createSelector(
+    [selectCart],
+    cart => cart.dropdownHidden
+)
+
 export const selectCartItemsCount = createSelector(
   [selectCartItems],
   cartItems => cartItems.reduce((acc, item) => acc + item.quantity, 0)
