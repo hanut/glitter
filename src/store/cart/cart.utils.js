@@ -20,7 +20,6 @@ export const removeItemFromCart = (cartItems, itemId, all) => {
   if (found === -1) {
     throw new Error("Item not found in cart: " + itemId);
   }
-
   if (all || cartItems[found].quantity === 1) {
     cartItems.splice(found, 1);
   } else {
@@ -28,15 +27,3 @@ export const removeItemFromCart = (cartItems, itemId, all) => {
   }
   return [...cartItems];
 };
-
-export const countItems = (cartItems) => {
-    return cartItems.reduce((total, item) => {
-        return total + item.quantity;
-    }, 0);
-}
-
-export const calculateTotal = (cartItems) => {
-    return cartItems.reduce((total, item) => {
-        return total + (item.quantity * item.price);
-    }, 0);
-}

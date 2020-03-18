@@ -2,6 +2,7 @@ import React from "react";
 import { ReactComponent as GiftBox } from "../../images/gift.svg";
 import { connect } from "react-redux";
 import { toggleCartDropdown } from "../../store/cart/cart.actions";
+import { selectCartItemsCount } from "../../store/cart/cart.selectors";
 
 import "./style.scss";
 
@@ -16,8 +17,8 @@ const mapDispatchToProps = dispatch => ({
   toggleCartDropdown: () => dispatch(toggleCartDropdown())
 });
 
-const mapStateToProps = ({ cart: { itemCount } }) => ({
-  count: itemCount
+const mapStateToProps = state => ({
+  count: selectCartItemsCount(state)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartIcon);
