@@ -24,20 +24,15 @@ const CartDropdown = ({ cartItems, total, history, dispatch }) => (
       )}
     </div>
     {cartItems.length > 0 ? (
-      <div>
-        <hr />
-        Cart Total: &#8377;{total}
-        <hr />
-        <CustomButton
-          style={{ fontSize: "12px" }}
-          onClick={() => {
-            history.push("/checkout");
-            dispatch(toggleCartDropdown());
-          }}
-        >
-          Go To Checkout
-        </CustomButton>
-      </div>
+      <CustomButton
+        style={{ fontSize: "12px" }}
+        onClick={() => {
+          history.push("/checkout");
+          dispatch(toggleCartDropdown());
+        }}
+      >
+        Go To Checkout
+      </CustomButton>
     ) : null}
   </div>
 );
@@ -47,6 +42,4 @@ const mapStateToProps = createStructuredSelector({
   total: selectCartTotal
 });
 
-export default withRouter(
-  connect(mapStateToProps)(CartDropdown)
-);
+export default withRouter(connect(mapStateToProps)(CartDropdown));

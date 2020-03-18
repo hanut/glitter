@@ -1,7 +1,6 @@
 import React from "react";
 import { removeCartItem } from "../../store/cart/cart.actions";
 import { connect } from "react-redux";
-import CustomButton from "../custom-button/custom-button.component";
 
 import "./style.scss";
 
@@ -13,9 +12,6 @@ const CartItem = ({ item: { id, name, price, image, quantity }, removeItem }) =>
       <span className="price">
         {quantity} * &#8377;{price}
       </span>
-      <CustomButton 
-      style={{width: "auto", height: "22px", fontSize: "14px", lineHeight: "14px"}} 
-      onClick={() => removeItem(id)}>Remove</CustomButton>
     </div>
   </div>
 );

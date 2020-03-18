@@ -1,6 +1,5 @@
 import CartActionTypes from "./cart.types";
-import { addItemToCart, removeItemFromCart } from "./cart.utils";
-import { incrementItemQty } from "./cart.actions";
+import { addItemToCart, removeItemFromCart, incrementItemQty } from "./cart.utils";
 
 const INITIAL_STATE = {
   dropdownHidden: true,

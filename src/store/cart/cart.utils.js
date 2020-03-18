@@ -5,7 +5,9 @@ export const addItemToCart = (cartItems, newItem) => {
 
   if (found) {
     return cartItems.map(item => {
-      return item.id === newItem.id ? { ...item, quantity: item.quantity + 1 } : item;
+      return item.id === newItem.id
+        ? { ...item, quantity: item.quantity + 1 }
+        : item;
     });
   }
 
@@ -20,12 +22,18 @@ export const removeItemFromCart = (cartItems, itemId, all) => {
   if (found === -1) {
     throw new Error("Item not found in cart: " + itemId);
   }
+
   if (all || cartItems[found].quantity === 1) {
-    cartItems.splice(found, 1);
-  } else {
-    cartItems[found].quantity--;
+    return cartItems.filter(item => item.id !== itemId);
   }
-  return [...cartItems];
+  
+  return cartItems.map(item => {
+    let newItem = Object.assign({}, item);
+    if (item.id === itemId) {
+      newItem.quantity--;
+    }
+    return newItem;
+  });
 };
 
 export const incrementItemQty = (cartItems, itemId) => {
