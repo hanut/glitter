@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import CustomButton from "../custom-button/custom-button.component";
 import { removeCartItem } from "../../store/cart/cart.actions";
+import CartItem from "../cart-item/cart-item.component";
 
 import "./style.scss";
 
@@ -10,18 +11,7 @@ const CartDropdown = ({ cartItems, removeItem }) => (
     <div className="cart-items">
       {cartItems.length > 0 ? (
         cartItems.map(item => (
-          <div key={item.id} className="cart-item">
-            {item.name.length < 25
-              ? item.name
-              : item.name.substr(0, 25) + "..."}
-            <button
-              onClick={() => {
-                removeItem(item.id, true);
-              }}
-            >
-              Remove
-            </button>
-          </div>
+          <CartItem key={item.id} item={item} />
         ))
       ) : (
         <h4 style={{ textAlign: "center", color: "#dfdfdf", marginTop: "45%" }}>
@@ -29,12 +19,16 @@ const CartDropdown = ({ cartItems, removeItem }) => (
         </h4>
       )}
     </div>
-    {cartItems.length > 0 ? <CustomButton>CHECKOUT</CustomButton> : null}
+    <hr/>
+    Cart Total: {}
+    <hr/>
+    {cartItems.length > 0 ? <CustomButton style={{fontSize: "12px"}}>Go To Checkout</CustomButton> : null}
   </div>
 );
 
-const mapStateToProps = ({ cart: { cartItems } }) => ({
-  cartItems
+const mapStateToProps = ({ cart: { cartItems, total } }) => ({
+  cartItems,
+  total
 });
 
 const mapDispatchToProps = dispatch => ({

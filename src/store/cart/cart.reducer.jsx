@@ -4,7 +4,8 @@ import { addItemToCart, removeItemFromCart, countItems } from "./cart.utils";
 const INITIAL_STATE = {
   dropdownHidden: true,
   cartItems: [],
-  itemCount: 0
+  itemCount: 0,
+  total: 0
 };
 
 const cartReducer = (state = INITIAL_STATE, action) => {
