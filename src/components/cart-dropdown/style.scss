@@ -1,14 +1,14 @@
 .cart-dropdown {
   position: absolute;
-  width: 240px;
+  width: 340px;
   height: 340px;
   display: flex;
   flex-direction: column;
   padding: 20px;
   border: 1px solid black;
   background-color: white;
-  top: 80px;
-  right: 40px;
+  top: 85px;
+  right: 30px;
   z-index: 5;
 
   .cart-items {
@@ -20,6 +20,13 @@
 
     &::-webkit-scrollbar {
       display: none;
+    }
+
+    .cart-item {
+      font-size: 14px;
+      padding: 10px 2px;
+      border-bottom: 1px solid #dfdfdf;
+      width: 100%;
     }
   }
 

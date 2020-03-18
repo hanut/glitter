@@ -5,10 +5,10 @@ import { toggleCartDropdown } from "../../store/cart/cart.actions";
 
 import "./style.scss";
 
-const CartIcon = ({ toggleCartDropdown }) => (
+const CartIcon = ({ toggleCartDropdown, count }) => (
   <div className="cart-icon" onClick={toggleCartDropdown}>
     <GiftBox className="gift-icon" />
-    <span className="item-count">0</span>
+    <span className="item-count">{count}</span>
   </div>
 );
 
@@ -16,4 +16,8 @@ const mapDispatchToProps = dispatch => ({
   toggleCartDropdown: () => dispatch(toggleCartDropdown())
 });
 
-export default connect(null, mapDispatchToProps)(CartIcon);
+const mapStateToProps = ({ cart: { itemCount } }) => ({
+  count: itemCount
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartIcon);
