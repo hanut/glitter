@@ -2,29 +2,33 @@
   width: 22%;
   display: flex;
   flex-direction: column;
-  height: 350px;
+  height: 450px;
   align-items: center;
   padding-top: 10px;
-  cursor: pointer;
-  overflow: hidden;
   
-  .image {
+  .image-holder {
     width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin-bottom: 5px;
-    transition: transform 3s cubic-bezier(0.25,0.45,0.45,0.95);
+    height: auto;
+    overflow: hidden;
+
+    .image {
+      width: 100%;
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin-bottom: 5px;
+      transition: transform 3s cubic-bezier(0.25,0.45,0.45,0.95);
+    }
   }
   
   .collection-footer {
-    padding: 1rem 2rem;
+    padding: 1rem 0rem;
     width: 100%;
     height: 5%;
     display: flex;
     justify-content: space-between;
-    font-size: 18px;
+    font-size: 14px;
 
     .name {
       width: 80%;
@@ -39,14 +43,19 @@
 
   .custom-button {
     position: relative;
-    bottom: 175px;
+    bottom: 100px;
     width: 80%;
     opacity: 0.75;
+    display: none;
   }
 
   &:hover {
     .image {
       transform: scale(1.2);
+    }
+
+    .custom-button {
+      display: block;
     }
   }
 }
