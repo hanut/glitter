@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import {
   removeCartItem,
-  incrementItemQty
+  addCartItem
 } from "../../store/cart/cart.actions";
 
 import "./style.scss";
@@ -36,7 +36,7 @@ const CheckoutItem = ({ cartItem, addItem, removeItem }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    addItem: (itemId) => dispatch(incrementItemQty(itemId)),
+    addItem: (itemId) => dispatch(addCartItem({id: itemId})),
     removeItem: (...params) => dispatch(removeCartItem(...params)),
 });
 

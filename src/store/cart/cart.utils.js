@@ -35,17 +35,3 @@ export const removeItemFromCart = (cartItems, itemId, all) => {
     return newItem;
   });
 };
-
-export const incrementItemQty = (cartItems, itemId) => {
-  let found = cartItems.findIndex(item => {
-    return item.id === itemId;
-  });
-
-  if (found === -1) {
-    throw new Error("Item not found in cart: " + itemId);
-  }
-
-  cartItems[found].quantity++;
-
-  return [...cartItems];
-};
