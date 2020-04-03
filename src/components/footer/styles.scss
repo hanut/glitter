@@ -1,0 +1,19 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+  color: #c0c0c0;
+  border-top: 2px solid #c0c0c0;
+  
+  a {
+    & {
+      background: none;
+      color: inherit;
+    }
+
+    &:hover {
+      background: none;
+      color: #707070;
+    }
+  }
+}

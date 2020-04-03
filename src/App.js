@@ -8,6 +8,7 @@ import AuthPage from "./pages/auth/auth.page";
 import CheckoutPage from "./pages/checkout/checkout.page";
 import * as NotFoundImage from "./images/404.jpg";
 import Header from "./components/header/header.component.jsx";
+import Footer from "./components/footer/footer.component.jsx";
 import { auth, createUserProfile } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./store/user/user.actions";
 import { selectCurrentUser } from "./store/user/user.selectors";
@@ -68,8 +69,8 @@ class App extends React.Component {
               return this.props.currentUser ? (
                 <Redirect to="/" />
               ) : (
-                <AuthPage />
-              );
+                  <AuthPage />
+                );
             }}
           />
           <Route
@@ -81,6 +82,7 @@ class App extends React.Component {
           />
           <Route path="*" component={NotFoundPage} />
         </Switch>
+        <Footer />
       </div>
     );
   }
