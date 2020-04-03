@@ -7,11 +7,7 @@
   .title {
     font-size: 28px;
     margin-bottom: 25px;
-
-    a:hover {
-      background: inherit;
-      color: inherit;
-    }
+    cursor: pointer;
   }
 
   .preview {
