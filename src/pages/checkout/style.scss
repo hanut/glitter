@@ -23,13 +23,24 @@
     }
   }
 
-  .total {
-    margin-top: 30px;
-    margin-left: auto;
-    font-size: 36px;
-  }
-
   .checkout-items {
     width: 100%;
+  }
+
+  .checkout-total {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    margin-top: 30px;
+    width: 100%;
+
+    .total {
+      font-size: 36px;
+      flex-grow: 3;
+      text-align: right;
+    }
+    .stripe-checkout-button-container {
+      flex-grow: 2;
+    }
   }
 }
